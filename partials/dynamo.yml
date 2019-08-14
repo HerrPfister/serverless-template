@@ -1,0 +1,30 @@
+Resources:
+  RENAMETable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:provider.stage}-RENAME
+      AttributeDefinitions:
+        - AttributeName: RENAME_HASH_KEY
+          AttributeType: S
+        - AttributeName: RENAME_SORT_KEY
+          AttributeType: S
+      KeySchema:
+        - AttributeName: RENAME_HASH_KEY
+          KeyType: HASH
+        - AttributeName: RENAME_SORT_KEY
+          KeyType: RANGE
+      # Remove the following if not needed:
+      GlobalSecondaryIndexes:
+        - IndexName: RENAME_INDEX
+          KeySchema:
+            - AttributeName: NEW_RENAME_HASH_KEY
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+      # end remove
+      ProvisionedThroughput: 
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1

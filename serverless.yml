@@ -1,0 +1,36 @@
+service: RENAME-API
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'local'}
+  region: ${env:REGION}
+  memorySize: 128
+  environment:
+    ALLOWED_ORIGIN: ${env:ALLOWED_ORIGIN}
+    TABLE_NAME: ${self:provider.stage}-RENAME
+  # NOTE: This is added to the global scope of this api. Meaning all functions will be able to perform these actions.
+  #       Feel free to remove this iamRoleStatement and make it more granular inside partials/functions.
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:Query
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:BatchGetItem
+        - dynamodb:DeleteItem
+      Resource:
+        - Fn::GetAtt: [RENAMETable, Arn]
+        # Remove the following if not needed:
+        - Fn::Join: ['/', [Fn::GetAtt: [RENAMETable, Arn], 'index', 'RENAME_INDEX']]
+        # end remove
+
+plugins:
+  - serverless-offline
+
+resources:
+  - ${file(partials/dynamo.yml)}
+
+functions:
+  - ${file(partials/functions.yml)}

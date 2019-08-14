@@ -1,0 +1,11 @@
+cors:
+  origin: ${env:ALLOWED_ORIGIN}
+  allowCredentials: true
+  headers:
+    - "Access-Control-Allow-Credentials"
+    - "Authorization"
+    - "Content-Type"
+    - "X-Amz-Date"
+    - "X-Amz-Security-Token"
+    - "X-Amz-User-Agent"
+    - "X-Api-Key"

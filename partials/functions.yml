@@ -1,0 +1,50 @@
+- CreateRENAME:
+  name: post-RENAME
+  handler: handlers/post-RENAME.handler
+  tags:
+    post: RENAME
+  events:
+    - http:
+        method: post
+        path: RENAME
+        cors: ${file(partials/cors.yml)}
+- GetRENAME:
+  name: get-RENAME
+  handler: handlers/get-RENAME.handler
+  tags:
+    get: RENAME
+  events:
+    - http:
+        method: get
+        path: RENAME/{RENAME_ID}
+        cors: ${file(partials/cors.yml)}
+- GetAllRENAME:
+  name: get-all-RENAME
+  handler: handlers/get-all-RENAME.handler
+  tags:
+    getAll: RENAME
+  events:
+    - http:
+        method: get
+        path: RENAME
+        cors: ${file(partials/cors.yml)}
+- DeleteRENAME:
+  name: delete-RENAME
+  handler: handlers/delete-RENAME.handler
+  tags:
+    delete: RENAME
+  events:
+    - http:
+        method: delete
+        path: RENAME/{RENAME_ID}
+        cors: ${file(partials/cors.yml)}
+- UpdateRENAME:
+  name: put-RENAME
+  handler: handlers/put-RENAME.handler
+  tags:
+    put: RENAME
+  events:
+    - http:
+        method: put
+        path: RENAME/{RENAME_ID}
+        cors: ${file(partials/cors.yml)}

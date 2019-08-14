@@ -1,0 +1,28 @@
+{
+  "name": "rename-serverless-api",
+  "parser": "babel-eslint",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "eslint --ext .js handlers/ clients/",
+    "start": "sls offline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/rename-serverless-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/rename-serverless-api/issues"
+  },
+  "homepage": "https://gitlab.com/rename-serverless-api#readme",
+  "dependencies": {
+    "aws-sdk": "^2.482.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "8",
+    "eslint": "4.x",
+    "serverless-offline": "^5.5.0"
+  }
+}
