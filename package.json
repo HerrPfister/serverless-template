@@ -18,12 +18,12 @@
   },
   "homepage": "https://gitlab.com/rename-serverless-api#readme",
   "dependencies": {
-    "aws-sdk": "^2.482.0",
-    "lodash": "^4.17.19"
+    "aws-sdk": "^2.878.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "babel-eslint": "8",
-    "eslint": "4.x",
-    "serverless-offline": "^5.5.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.23.0",
+    "serverless-offline": "^6.9.0"
   }
 }
